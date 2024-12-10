@@ -6,19 +6,20 @@ int n;
 cout<<"Enter number of elements:";
 cin>>n;
 cout<<"\nEnter elements:\n";
-int arr[n];
+ vector<int> arr(n);
 for(int i=0;i<n;i++){
     cin>>arr[i];
 }
-
+sort(arr.begin(),arr.end());
 cout<<"Reapeating elements are:";
-for(int i=0; i<n;i++){
-    for(int j=i+1;j<n;j++){
-        if(arr[i]==arr[j] && arr[i]){
-            cout<<arr[j]<<"";
-            continue;
+int last=-1;
+for(int i=1; i<n;i++){
+    
+        if(arr[i]==arr[i-1] && arr[i]!=last){
+            cout<<arr[i]<<"";
+            last=arr[i];
         }
-    }
+    
 }
 return 0;
 }
